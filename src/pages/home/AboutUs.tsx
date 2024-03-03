@@ -46,14 +46,16 @@ const AboutUs = () => {
 
         {/* Content with Animation */}
         <motion.div
-          className="text-white text-center z-40 bg-black bg-opacity-60 w-full h-full flex flex-col items-center justify-center p-5 object-fit"
+          className="text-white text-center z-40 bg-black dark:bg-white bg-opacity-60 dark:bg-opacity-50 w-full h-full flex flex-col items-center justify-center p-5 object-fit"
           variants={textVariants}
           initial="hidden"
           animate={controls}
           transition={{ duration: 3, delay: 0.6 }}
         >
-          <h2 className="text-5xl font-bold mb-7 capitalize">About Us</h2>
-          <p className="text-md">
+          <h2 className="text-5xl font-bold mb-7 capitalize dark:text-black">
+            About Us
+          </h2>
+          <p className="text-md dark:text-black">
             Our Food Supply Management Company is dedicated to revolutionizing
             the food distribution landscape. Our core goal is to establish a
             resilient and efficient supply chain, driven by cutting-edge

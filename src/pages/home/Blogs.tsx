@@ -17,7 +17,7 @@ const Blogs = () => {
             <span className="text-red-600 text-xl font-light">~</span> Is Food
             Supply really fresh each day?
           </h3>
-          <p className="text-md font-thin text-slate-500">
+          <p className="text-md font-thin text-slate-500 dark:text-slate-50">
             Far far away, behind the word mountains, far from the countries
             Vokalia and Consonantia, there live the blind texts. Separated they
             live in Bookmarksgrove right at the coast of the Semantics, a large
@@ -30,7 +30,7 @@ const Blogs = () => {
             <span className="text-red-600 text-xl font-light">~</span> Do you
             collect everyday's product from the farm?
           </h3>
-          <p className="text-md font-thin text-slate-500">
+          <p className="text-md font-thin text-slate-500 dark:text-slate-50">
             Far far away, behind the word mountains, far from the countries
             Vokalia and Consonantia, there live the blind texts. Separated they
             live in Bookmarksgrove right at the coast of the Semantics, a large
@@ -43,7 +43,7 @@ const Blogs = () => {
             <span className="text-red-600 text-xl font-light">~</span> Can I
             order your products online?
           </h3>
-          <p className="text-md font-thin text-slate-500">
+          <p className="text-md font-thin text-slate-500 dark:text-slate-50">
             Far far away, behind the word mountains, far from the countries
             Vokalia and Consonantia, there live the blind texts. Separated they
             live in Bookmarksgrove right at the coast of the Semantics, a large
@@ -56,7 +56,7 @@ const Blogs = () => {
             <span className="text-red-600 text-xl font-light">~</span> When are
             you opening a shop near me?
           </h3>
-          <p className="text-md font-thin text-slate-500">
+          <p className="text-md font-thin text-slate-500 dark:text-slate-50">
             Far far away, behind the word mountains, far from the countries
             Vokalia and Consonantia, there live the blind texts. Separated they
             live in Bookmarksgrove right at the coast of the Semantics, a large

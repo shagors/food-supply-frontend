@@ -1,9 +1,14 @@
 // import { logout } from "@/redux/features/auth/authSlice";
 // import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Switch } from "../ui/switch";
 
-const Navbar = () => {
+type TNavbarProps = {
+  handleThemeSwitch: () => void;
+};
+
+const Navbar: React.FC<TNavbarProps> = ({ handleThemeSwitch }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // const isAuthenticated = useAppSelector((state) => state.auth.user);
@@ -20,7 +25,7 @@ const Navbar = () => {
 
   return (
     <header className="">
-      <nav className="flex items-center justify-between text-white max-w-7xl w-full mx-auto fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-40 p-3">
+      <nav className="flex items-center justify-between text-white max-w-7xl w-full mx-auto fixed top-0 left-0 right-0 z-50 bg-slate-800 bg-opacity-40 p-3">
         <div className="flex items-center">
           <Link
             to="/"
@@ -45,6 +50,7 @@ const Navbar = () => {
               isMenuOpen ? "flex flex-col items-center" : "hidden"
             } sm:flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-4 sm:mt-0 transition-all duration-300`}
           >
+            <Switch onClick={handleThemeSwitch} />
             <NavLink
               to="/"
               className="text-base font-medium leading-6"

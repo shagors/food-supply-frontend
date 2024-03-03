@@ -18,7 +18,7 @@ const SingleCard = ({ _id, image, title, category, quantity }: TCard) => {
       transition={{ duration: 0.4, ease: "easeInOut" }}
       className="col-span-12 md:col-span-6 lg:col-span-4"
     >
-      <Card className="h-[540px] hover:shadow-lg">
+      <Card className="h-[540px] hover:shadow-lg dark:bg-slate-700 dark:bg-opacity-80">
         <CardHeader>
           <motion.img
             initial={{ opacity: 0 }}
@@ -37,7 +37,7 @@ const SingleCard = ({ _id, image, title, category, quantity }: TCard) => {
           </p>
           <p className="text-md">
             Available Quantity:{" "}
-            <span className="text-cyan-900 font-semibold text-xl">
+            <span className="text-cyan-900 dark:text-cyan-50 font-semibold text-xl">
               {quantity}
             </span>
           </p>

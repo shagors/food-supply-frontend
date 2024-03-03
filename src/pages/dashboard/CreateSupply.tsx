@@ -40,13 +40,13 @@ const CreateSupply = () => {
   };
 
   return (
-    <div className="bg-slate-300 bg-opacity-20 h-screen pt-12">
+    <div className="bg-slate-300 dark:bg-slate-700 bg-opacity-20 h-screen pt-12">
       <motion.div
         initial={{ opacity: 0, y: 70 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 70 }}
         transition={{ duration: 0.5 }}
-        className="max-w-xl mx-auto p-6 rounded-md shadow-lg"
+        className="max-w-xl mx-auto p-6 rounded-md shadow-lg dark:shadow-2xl"
       >
         <motion.h1
           whileHover={{ scale: 1.04 }}
@@ -55,7 +55,7 @@ const CreateSupply = () => {
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="text-4xl text-center font-light mb-7 shadow-xl p-4 rounded-b-lg"
+          className="text-4xl text-center font-light mb-7 shadow-xl p-4 rounded-b-lg dark:text-white"
         >
           Add New Supply
         </motion.h1>
@@ -64,7 +64,7 @@ const CreateSupply = () => {
           <div className="mb-4">
             <label
               htmlFor="image"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-gray-700 dark:text-slate-200 font-bold mb-2"
             >
               Image
             </label>
@@ -92,7 +92,7 @@ const CreateSupply = () => {
           <div className="mb-4">
             <label
               htmlFor="category"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-gray-700 font-bold mb-2 dark:text-slate-200"
             >
               Category
             </label>
@@ -120,7 +120,7 @@ const CreateSupply = () => {
           <div className="mb-4">
             <label
               htmlFor="title"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-gray-700 font-bold mb-2 dark:text-slate-200"
             >
               Title
             </label>
@@ -148,7 +148,7 @@ const CreateSupply = () => {
           <div className="mb-4">
             <label
               htmlFor="quantity"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-gray-700 font-bold mb-2 dark:text-slate-200"
             >
               Quantity
             </label>
@@ -176,7 +176,7 @@ const CreateSupply = () => {
           <div className="mb-6">
             <label
               htmlFor="description"
-              className="block text-gray-700 font-bold mb-2"
+              className="block text-gray-700 font-bold mb-2 dark:text-slate-200"
             >
               Description
             </label>

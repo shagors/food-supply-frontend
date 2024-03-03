@@ -50,22 +50,24 @@ const SingleSupplyDetails = () => {
         <div className="px-24 mt-5">
           <h2 className="text-4xl">
             Food Name :{" "}
-            <span className="text-gray-500 font-semibold">{supply.title}</span>
+            <span className="text-gray-500 dark:text-gray-200 font-semibold">
+              {supply.title}
+            </span>
           </h2>
           <h3 className="my-4 text-2xl">
             Category :{" "}
-            <span className="text-gray-500 font-semibold">
+            <span className="text-gray-500 dark:text-gray-200 font-semibold">
               {supply.category}
             </span>
           </h3>
           <h3 className="my-4 text-2xl">
             In Stock :{" "}
-            <span className="text-gray-500 font-semibold">
+            <span className="text-gray-500 dark:text-gray-200 font-semibold">
               {supply.quantity}
             </span>
           </h3>
           <h3 className="text-2xl mb-3">Product Details: </h3>
-          <p className="text-gray-500 text-sm font-light">
+          <p className="text-gray-500 dark:text-gray-200 text-sm font-light">
             {supply.description}
           </p>
         </div>

@@ -19,7 +19,7 @@ const CalculationUsers = () => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.5 }}
       transition={{ duration: 0.8 }}
-      className="my-20 bg-slate-200 h-60 text-center p-10 rounded"
+      className="my-20 bg-slate-200 dark:bg-slate-400 h-60 text-center p-10 rounded"
     >
       <h3 className="text-4xl mb-6">Hurry up! Subscribe our newsletter</h3>
       <form className="w-[420px] mx-auto flex items-center justify-center space-x-2">
