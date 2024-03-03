@@ -44,7 +44,7 @@ const DashboardSidebar = () => {
           to="/dashboard/create-supply"
           className={({ isActive }) =>
             cn(
-              "p-3 bg-slate-300 font-semibold rounded-md transition-all flex items-center justify-evenly gap-2",
+              "p-3 bg-slate-300 font-semibold rounded-md transition-all flex items-center justify-evenly gap-2 mb-5",
               {
                 "bg-slate-600 text-white": isActive,
               }
@@ -53,6 +53,36 @@ const DashboardSidebar = () => {
         >
           <FilePenLineIcon className="size-4 shrink-0" />
           <span className="truncate">Create Supply</span>
+        </NavLink>
+
+        <NavLink
+          to="/dashboard/leaderboard"
+          className={({ isActive }) =>
+            cn(
+              "p-3 bg-slate-300 font-semibold rounded-md transition-all flex items-center justify-evenly gap-2 mb-5",
+              {
+                "bg-slate-600 text-white": isActive,
+              }
+            )
+          }
+        >
+          <FilePenLineIcon className="size-4 shrink-0" />
+          <span className="truncate">Leader board</span>
+        </NavLink>
+
+        <NavLink
+          to="/dashboard/create-buyer"
+          className={({ isActive }) =>
+            cn(
+              "p-3 bg-slate-300 font-semibold rounded-md transition-all flex items-center justify-evenly gap-2",
+              {
+                "bg-slate-600 text-white": isActive,
+              }
+            )
+          }
+        >
+          <FilePenLineIcon className="size-4 shrink-0" />
+          <span className="truncate">Add Buyer</span>
         </NavLink>
 
         <NavLink
