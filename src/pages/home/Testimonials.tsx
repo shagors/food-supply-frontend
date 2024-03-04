@@ -7,17 +7,44 @@ import {
 import SectionTitle from "@/components/shared/SectionTitle";
 import TestimonialCard from "@/components/shared/TestimonialCard";
 
-import avatar from "../../assets/Invisible.png";
-import avatar1 from "../../assets/avatar1.jpg";
-import amazonAvatar from "../../assets/amazon.jpg";
 import netflix from "../../assets/Netflix.png";
-import google from "../../assets/Google.png";
-import youtube from "../../assets/Youtube.png";
-import amazon from "../../assets/amazon.png";
-import lenovo from "../../assets/lenovo.png";
-import slack from "../../assets/slack.png";
+import { useGetTestimonialsQuery } from "@/redux/features/testimonials/testimonialApi";
+import ClipLoader from "react-spinners/ClipLoader";
+import { CSSProperties } from "react";
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+};
+
+type TItemProps = {
+  _id: string;
+  buyerName: string;
+  image: string;
+  title: string;
+  description: string;
+  createdAt: string;
+};
 
 const Testimonials = () => {
+  const { data, isLoading, isError } = useGetTestimonialsQuery(undefined);
+  // console.log(data);
+
+  if (isLoading) {
+    return (
+      <p className="text-4xl text-gray-500 font-thin text-center mt-36">
+        <ClipLoader cssOverride={override} color="#36d7b7" size={60} />
+      </p>
+    );
+  }
+
+  if (isError) {
+    return (
+      <p className="text-4xl text-red-500 font-thin text-center mt-16">
+        Something went wrong data fetching try again later !!
+      </p>
+    );
+  }
   return (
     <div className="mb-20">
       <SectionTitle heading="Testimonials" />
@@ -29,77 +56,16 @@ const Testimonials = () => {
           className="w-full max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto"
         >
           <CarouselContent>
-            <TestimonialCard
-              avatar={avatar}
-              name="Annette Black"
-              designation="Chief Chairman of Netflix"
-              description="“Golio is one of the BEST web designers I've ever worked
-                        with professionally. I am a repeat customer who
-                        continues to work with Zakir because of his
-                        talent/skills, great customer service, work ethic, and
-                        attention to detail. ”"
-              logo={netflix}
-            />
-
-            <TestimonialCard
-              avatar={avatar1}
-              name="Sundar picay"
-              designation="Chief Chairman of Google"
-              description="“Golio is one of the BEST web designers I've ever worked
-                        with professionally. I am a repeat customer who
-                        continues to work with Zakir because of his
-                        talent/skills, great customer service, work ethic, and
-                        attention to detail. ”"
-              logo={google}
-            />
-
-            <TestimonialCard
-              avatar={avatar}
-              name="Satty Nadale"
-              designation="Chief Chairman of Youtube"
-              description="“Golio is one of the BEST web designers I've ever worked
-                        with professionally. I am a repeat customer who
-                        continues to work with Zakir because of his
-                        talent/skills, great customer service, work ethic, and
-                        attention to detail. ”"
-              logo={youtube}
-            />
-
-            <TestimonialCard
-              avatar={amazonAvatar}
-              name="Jeff Bezos"
-              designation="Founder of Amazon"
-              description="“Golio is one of the BEST web designers I've ever worked
-                        with professionally. I am a repeat customer who
-                        continues to work with Zakir because of his
-                        talent/skills, great customer service, work ethic, and
-                        attention to detail. ”"
-              logo={amazon}
-            />
-
-            <TestimonialCard
-              avatar={avatar}
-              name="Yang Yuanqing"
-              designation="CEO of Lenovo"
-              description="“Golio is one of the BEST web designers I've ever worked
-                        with professionally. I am a repeat customer who
-                        continues to work with Zakir because of his
-                        talent/skills, great customer service, work ethic, and
-                        attention to detail. ”"
-              logo={lenovo}
-            />
-
-            <TestimonialCard
-              avatar={avatar}
-              name="Denise Dresser"
-              designation="CEO of Slack"
-              description="“Golio is one of the BEST web designers I've ever worked
-                        with professionally. I am a repeat customer who
-                        continues to work with Zakir because of his
-                        talent/skills, great customer service, work ethic, and
-                        attention to detail. ”"
-              logo={slack}
-            />
+            {data?.data?.map((item: TItemProps) => (
+              <TestimonialCard
+                key={item._id}
+                avatar={item.image}
+                name={item.buyerName}
+                designation={item.title}
+                description={item.description.slice(0, 250)}
+                logo={netflix}
+              />
+            ))}
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />

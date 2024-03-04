@@ -93,25 +93,35 @@ const Donor = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.data?.map((item: TItemProps) => (
-            <TableRow key={item._id}>
-              <TableCell className="">
-                <img
-                  src={item.image}
-                  alt="buyerImage"
-                  className="w-8 h-8 rounded-full object-cover"
-                />
-              </TableCell>
-              <TableCell>{item.buyerName}</TableCell>
-              <TableCell>{item.quantity}</TableCell>
-              <TableCell>
-                <Trash2Icon
-                  className="text-red-600 cursor-pointer hover:text-red-400"
-                  onClick={() => handleDeleteConfirmation(item._id)}
-                />
-              </TableCell>
-            </TableRow>
-          ))}
+          {data?.data
+            ?.slice()
+            .sort((a: TItemProps, b: TItemProps) => {
+              const quantityA: number = Number(a.quantity);
+              const quantityB: number = Number(b.quantity);
+
+              return quantityB - quantityA;
+            })
+            .map((item: TItemProps) => {
+              return (
+                <TableRow key={item._id}>
+                  <TableCell className="">
+                    <img
+                      src={item.image}
+                      alt="buyerImage"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  </TableCell>
+                  <TableCell>{item.buyerName}</TableCell>
+                  <TableCell>{item.quantity}</TableCell>
+                  <TableCell>
+                    <Trash2Icon
+                      className="text-red-600 cursor-pointer hover:text-red-400"
+                      onClick={() => handleDeleteConfirmation(item._id)}
+                    />
+                  </TableCell>
+                </TableRow>
+              );
+            })}
         </TableBody>
       </Table>
 

@@ -4,9 +4,9 @@ import { CarouselItem } from "../ui/carousel";
 type TTCard = {
   avatar: string;
   name: string;
-  designation: string;
+  designation?: string;
   description: string;
-  logo: string;
+  logo?: string;
 };
 
 const TestimonialCard = ({
