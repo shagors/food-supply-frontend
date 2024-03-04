@@ -8,6 +8,7 @@ const authApi = baseApi.injectEndpoints({
         method: "POST",
         body: supplies,
       }),
+      invalidatesTags: ["supply"],
     }),
 
     getSupplies: builder.query({
@@ -15,6 +16,7 @@ const authApi = baseApi.injectEndpoints({
         url: "/supplies",
         method: "GET",
       }),
+      providesTags: ["supply"],
     }),
 
     getSuppliesById: builder.query({
@@ -22,6 +24,7 @@ const authApi = baseApi.injectEndpoints({
         url: `/supplies/${supplyId}`,
         method: "GET",
       }),
+      providesTags: ["supply"],
     }),
 
     updateSupplies: builder.mutation({
@@ -33,6 +36,7 @@ const authApi = baseApi.injectEndpoints({
           "Content-Type": "application/json",
         },
       }),
+      invalidatesTags: ["supply"],
     }),
 
     deleteSuppliesById: builder.mutation({
@@ -41,6 +45,7 @@ const authApi = baseApi.injectEndpoints({
         method: "DELETE",
         body: supplyId,
       }),
+      invalidatesTags: ["supply"],
     }),
   }),
 });

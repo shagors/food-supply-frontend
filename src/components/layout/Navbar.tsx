@@ -58,6 +58,7 @@ const Navbar: React.FC<TNavbarProps> = ({ handleThemeSwitch }) => {
             >
               Home
             </NavLink>
+
             <NavLink
               to="/all-supplies"
               className="text-base font-medium leading-6"
@@ -67,12 +68,21 @@ const Navbar: React.FC<TNavbarProps> = ({ handleThemeSwitch }) => {
             </NavLink>
 
             <NavLink
+              to="/volunteer"
+              className="text-base font-medium leading-6"
+              onClick={toggleMenu}
+            >
+              About Us
+            </NavLink>
+
+            <NavLink
               to="/dashboard"
               className="text-base font-medium leading-6"
               onClick={toggleMenu}
             >
               Dashboard
             </NavLink>
+
             <NavLink
               to="/login"
               className="text-base font-medium leading-6"

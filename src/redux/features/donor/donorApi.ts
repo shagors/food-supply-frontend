@@ -8,6 +8,7 @@ const leaderboardApi = baseApi.injectEndpoints({
         method: "POST",
         body: buyer,
       }),
+      invalidatesTags: ["leaderboard"],
     }),
 
     getLeaderboard: builder.query({
@@ -15,6 +16,7 @@ const leaderboardApi = baseApi.injectEndpoints({
         url: "/leaderboard",
         method: "GET",
       }),
+      providesTags: ["leaderboard"],
     }),
 
     deleteLeaderboardById: builder.mutation({
@@ -23,6 +25,7 @@ const leaderboardApi = baseApi.injectEndpoints({
         method: "DELETE",
         body: buyerId,
       }),
+      invalidatesTags: ["leaderboard"],
     }),
   }),
 });

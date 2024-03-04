@@ -4,17 +4,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-import { useAddBuyerMutation } from "@/redux/features/donor/donorApi";
+import { useAddTestimonialMutation } from "@/redux/features/testimonials/testimonialApi";
 
 const validationSchema = z.object({
   image: z.string().min(1, { message: "Image is required" }),
-  buyerName: z.string().min(1, { message: "Buyer Name is required" }),
-  quantity: z.string().min(1, { message: "Quantity must be greater than 0" }),
+  buyerName: z.string().min(1, { message: "Category is required" }),
+  title: z.string().min(1, { message: "Title is required" }),
+  description: z.string().min(1, { message: "Description is required" }),
 });
 
 type FormData = z.infer<typeof validationSchema>;
 
-const AddDonor = () => {
+const CreateTestimonials = () => {
   const navigate = useNavigate();
   const {
     control,
@@ -25,16 +26,16 @@ const AddDonor = () => {
     resolver: zodResolver(validationSchema),
   });
 
-  const [addBuyer] = useAddBuyerMutation();
+  const [addTestimonials] = useAddTestimonialMutation();
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     // console.log(data);
-    addBuyer(data);
+    addTestimonials(data);
     toast.success("Data successfully uploaded", {
       duration: 2000,
     });
     reset();
-    navigate("/dashboard/leaderboard");
+    navigate("/dashboard/testimonials");
   };
 
   return (
@@ -55,7 +56,7 @@ const AddDonor = () => {
           }}
           className="text-4xl text-center font-light mb-7 shadow-xl p-4 rounded-b-lg dark:text-white"
         >
-          Add New Buyer List
+          Buyer Testimonials
         </motion.h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Image field */}
@@ -86,13 +87,13 @@ const AddDonor = () => {
             )}
           </div>
 
-          {/* Name field */}
+          {/* Category field */}
           <div className="mb-4">
             <label
-              htmlFor="buyerName"
+              htmlFor="category"
               className="block text-gray-700 font-bold mb-2 dark:text-slate-200"
             >
-              Buyer Name
+              Name
             </label>
             <Controller
               name="buyerName"
@@ -101,8 +102,8 @@ const AddDonor = () => {
                 <input
                   {...field}
                   type="text"
-                  id="buyerName"
-                  placeholder="Enter Buyer Name"
+                  id="category"
+                  placeholder="Enter Your Name"
                   className={`w-full px-3 py-2 border ${
                     errors.buyerName ? "border-red-500" : "border-gray-300"
                   } rounded-md focus:outline-none focus:border-blue-500`}
@@ -114,31 +115,61 @@ const AddDonor = () => {
             )}
           </div>
 
-          {/* Quantity field */}
+          {/* Title field */}
           <div className="mb-4">
             <label
-              htmlFor="quantity"
+              htmlFor="title"
               className="block text-gray-700 font-bold mb-2 dark:text-slate-200"
             >
-              Purchase Quantity
+              Title
             </label>
             <Controller
-              name="quantity"
+              name="title"
               control={control}
               render={({ field }) => (
                 <input
                   {...field}
                   type="text"
-                  id="quantity"
-                  placeholder="Enter quantity"
+                  id="title"
+                  placeholder="Enter title"
                   className={`w-full px-3 py-2 border ${
-                    errors.quantity ? "border-red-500" : "border-gray-300"
+                    errors.title ? "border-red-500" : "border-gray-300"
                   } rounded-md focus:outline-none focus:border-blue-500`}
                 />
               )}
             />
-            {errors.quantity && (
-              <p className="text-red-500 text-sm">{errors.quantity.message}</p>
+            {errors.title && (
+              <p className="text-red-500 text-sm">{errors.title.message}</p>
+            )}
+          </div>
+
+          {/* Description field */}
+          <div className="mb-6">
+            <label
+              htmlFor="description"
+              className="block text-gray-700 font-bold mb-2 dark:text-slate-200"
+            >
+              Description
+            </label>
+            <Controller
+              name="description"
+              control={control}
+              render={({ field }) => (
+                <textarea
+                  {...field}
+                  id="description"
+                  placeholder="Enter description"
+                  rows={4}
+                  className={`w-full px-3 py-2 border ${
+                    errors.description ? "border-red-500" : "border-gray-300"
+                  } rounded-md focus:outline-none focus:border-blue-500`}
+                />
+              )}
+            />
+            {errors.description && (
+              <p className="text-red-500 text-sm">
+                {errors.description.message}
+              </p>
             )}
           </div>
 
@@ -148,7 +179,7 @@ const AddDonor = () => {
               type="submit"
               className="w-2/4 bg-slate-400 bg-opacity-85 text-black font-medium py-2 px-4 rounded-md hover:bg-slate-600 hover:text-white focus:outline-none transition-all"
             >
-              Submit
+              Give Feedback
             </button>
           </div>
         </form>
@@ -157,4 +188,4 @@ const AddDonor = () => {
   );
 };
 
-export default AddDonor;
+export default CreateTestimonials;

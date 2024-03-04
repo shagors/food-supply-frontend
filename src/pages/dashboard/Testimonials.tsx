@@ -11,9 +11,9 @@ import { CSSProperties, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { Link } from "react-router-dom";
 import {
-  useDeleteLeaderboardByIdMutation,
-  useGetLeaderboardQuery,
-} from "@/redux/features/donor/donorApi";
+  useDeleteTestimonialsByIdMutation,
+  useGetTestimonialsQuery,
+} from "@/redux/features/testimonials/testimonialApi";
 
 const override: CSSProperties = {
   display: "block",
@@ -24,12 +24,13 @@ type TItemProps = {
   _id: string;
   buyerName: string;
   image: string;
-  quantity: string;
+  description: string;
 };
 
-const Donor = () => {
+const Testimonials = () => {
   // data get from server with rtk
-  const { data, isLoading, isError } = useGetLeaderboardQuery(undefined);
+  const { data, isLoading, isError } = useGetTestimonialsQuery(undefined);
+  console.log(data);
 
   const [deleteConfirmation, setDeleteConfirmation] = useState({
     isOpen: false,
@@ -37,7 +38,7 @@ const Donor = () => {
   });
 
   // data delete function call for server with rtk
-  const [deleteSupply] = useDeleteLeaderboardByIdMutation();
+  const [deleteSupply] = useDeleteTestimonialsByIdMutation();
   // console.log(data.data);
 
   if (isLoading) {
@@ -76,11 +77,11 @@ const Donor = () => {
       </h1>
       <div className="flex items-center justify-end my-4 mr-6">
         <Link
-          to="/dashboard/create-buyer"
+          to="/dashboard/create-testimonial"
           className="bg-slate-300 px-8 py-2 text-black font-semibold rounded-md hover:text-white hover:bg-slate-700 flex items-center gap-2"
         >
           <FilePlus2Icon className="size-5" />
-          Add Buyer
+          Add Testimonials
         </Link>
       </div>
       <Table>
@@ -88,7 +89,7 @@ const Donor = () => {
           <TableRow>
             <TableHead className="">Image</TableHead>
             <TableHead>Buyer Name</TableHead>
-            <TableHead>Quantity</TableHead>
+            <TableHead>Description</TableHead>
             <TableHead>Action</TableHead>
           </TableRow>
         </TableHeader>
@@ -103,7 +104,7 @@ const Donor = () => {
                 />
               </TableCell>
               <TableCell>{item.buyerName}</TableCell>
-              <TableCell>{item.quantity}</TableCell>
+              <TableCell className="w-[700px]">{item.description}</TableCell>
               <TableCell>
                 <Trash2Icon
                   className="text-red-600 cursor-pointer hover:text-red-400"
@@ -143,4 +144,4 @@ const Donor = () => {
   );
 };
 
-export default Donor;
+export default Testimonials;

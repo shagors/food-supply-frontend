@@ -86,6 +86,36 @@ const DashboardSidebar = () => {
         </NavLink>
 
         <NavLink
+          to="/dashboard/testimonials"
+          className={({ isActive }) =>
+            cn(
+              "p-3 bg-slate-300 font-semibold rounded-md transition-all flex items-center justify-evenly gap-2 mt-5",
+              {
+                "bg-slate-600 text-white": isActive,
+              }
+            )
+          }
+        >
+          <FilePenLineIcon className="size-4 shrink-0" />
+          <span className="truncate">Testimonials</span>
+        </NavLink>
+
+        <NavLink
+          to="/dashboard/create-testimonial"
+          className={({ isActive }) =>
+            cn(
+              "p-3 bg-slate-300 font-semibold rounded-md transition-all flex items-center justify-evenly gap-2 mt-5",
+              {
+                "bg-slate-600 text-white": isActive,
+              }
+            )
+          }
+        >
+          <FilePenLineIcon className="size-4 shrink-0" />
+          <span className="truncate">Create Testimonial</span>
+        </NavLink>
+
+        <NavLink
           to="/"
           className="p-3 bg-slate-300 font-semibold rounded-md hover:bg-slate-600 hover:text-white mt-5"
         >
