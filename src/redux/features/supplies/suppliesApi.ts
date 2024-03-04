@@ -1,6 +1,6 @@
 import { baseApi } from "@/redux/api/baseApi";
 
-const authApi = baseApi.injectEndpoints({
+const supplyApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     postSupplies: builder.mutation({
       query: (supplies) => ({
@@ -56,4 +56,4 @@ export const {
   useGetSuppliesByIdQuery,
   useUpdateSuppliesMutation,
   useDeleteSuppliesByIdMutation,
-} = authApi;
+} = supplyApi;

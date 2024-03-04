@@ -38,6 +38,7 @@ const VolunteerForm = () => {
     reset();
     navigate("/volunteer");
   };
+
   return (
     <div className="bg-slate-300 dark:bg-slate-700 bg-opacity-20 h-full pt-32">
       <motion.div

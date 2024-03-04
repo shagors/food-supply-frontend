@@ -11,6 +11,7 @@ import Donor from "@/pages/dashboard/Donor";
 import Testimonials from "@/pages/dashboard/Testimonials";
 import VolunteerForm from "@/pages/dashboard/VolunteerForm";
 import AllSupplies from "@/pages/home/AllSupplies";
+import Community from "@/pages/home/Community";
 import Home from "@/pages/home/Home";
 import SingleSupplyDetails from "@/pages/home/SingleSupplyDetails";
 import Volunteer from "@/pages/home/Volunteer";
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
       { path: "/supplies/:id", element: <SingleSupplyDetails /> },
       { path: "/volunteer", element: <Volunteer /> },
       { path: "/volunteer-form", element: <VolunteerForm /> },
+      { path: "/community", element: <Community /> },
     ],
   },
   {

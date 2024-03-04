@@ -76,6 +76,14 @@ const Navbar: React.FC<TNavbarProps> = ({ handleThemeSwitch }) => {
             </NavLink>
 
             <NavLink
+              to="/community"
+              className="text-base font-medium leading-6"
+              onClick={toggleMenu}
+            >
+              Community
+            </NavLink>
+
+            <NavLink
               to="/dashboard"
               className="text-base font-medium leading-6"
               onClick={toggleMenu}

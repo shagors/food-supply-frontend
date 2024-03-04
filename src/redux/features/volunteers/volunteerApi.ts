@@ -1,6 +1,6 @@
 import { baseApi } from "@/redux/api/baseApi";
 
-const testimonialsApi = baseApi.injectEndpoints({
+const volunteerApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     addVolunteer: builder.mutation({
       query: (buyer) => ({
@@ -34,4 +34,4 @@ export const {
   useAddVolunteerMutation,
   useGetVolunteersQuery,
   useDeleteVolunteerByIdMutation,
-} = testimonialsApi;
+} = volunteerApi;
